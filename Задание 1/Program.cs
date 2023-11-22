@@ -10,9 +10,6 @@ namespace ConsoleApp6.Test1
             {
                 string path = @"D:\Книги\Прогромирование";
                 DeleteFiles(path);
-
-                // TimeSpan TimeLastAccess = new TimeSpan(0, Directory.GetLastAccessTime(path).Minute, 0);
-                // Console.WriteLine(TimeLastAccess < TimeSpan.FromMinutes(30));
             }
             catch (Exception ex)
             {
