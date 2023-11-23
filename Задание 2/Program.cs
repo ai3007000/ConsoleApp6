@@ -9,21 +9,9 @@ namespace ConsoleApp6.Test2
         {
             try
             {
-                DriveInfo[] drives = DriveInfo.GetDrives();
-                Console.WriteLine("Список логических дисков получен.");
-                foreach (var drive in drives)
-                {
-                    if (drive.IsReady)
-                    {
-                        var Folder = Directory.GetDirectories(drive.Name);// Список каталогов
-                        // C:\$WinREAgent
-                        foreach (var fd in Folder)
-                        {
-                            long TotalFolderSize = FolderSize(fd); // Расчёт размера файлов
-                            Console.WriteLine($"Общий размер файлов: {FolderSize(fd)}");
-                        }
-                    }
-                }
+                var path = @"D:\Книги\Прогромирование";
+                long TotalFolderSize = FolderSize(path); // Расчёт размера файлов
+                Console.WriteLine($"Общий размер файлов: {TotalFolderSize} байт");
             }
             catch (Exception ex)
             {
@@ -38,16 +26,15 @@ namespace ConsoleApp6.Test2
         static long FolderSize(string path)
         {
             long totalSizeOfDir = 0; // Размер файлов
+            DirectoryInfo di = new DirectoryInfo(path); // Каталоги
+            FileInfo[] AllFiles = di.GetFiles(); // Список файлов
 
-            var allFiles = Directory.GetFiles(path); // Каталоги
-            if (allFiles.Length > 0)
+            if (AllFiles.Length > 0)
             {
-                Console.WriteLine("Список файлов получен." + allFiles[0]);
-                foreach (var file in allFiles)
+                foreach (var file in AllFiles)
                 {
-                    if (File.Exists(file))
+                    if (file.Exists)
                     {
-                        Console.WriteLine("Файл существует.");
                         totalSizeOfDir += file.Length; // Расчёт размера файлов
                     }
                 }
