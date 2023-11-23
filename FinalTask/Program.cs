@@ -8,7 +8,7 @@ namespace ConsoleApp6.FinalTask
     {
         static void Main(string[] args)
         {
-            const string path = @"D:\Програмирование\C#\ConsoleApp6\FinalTask\bin\Debug\net6.0\Students.dat";
+            const string path = @"D:\Програмирование\C#\ConsoleApp6\FinalTask\Students.dat";
             using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
             {
                 var str = reader.ReadString();
