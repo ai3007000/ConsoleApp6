@@ -22,7 +22,7 @@ namespace FinalTask
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{this.Name}\t{this.Group}\t{this.DateOfBirth}";
+            return $"{this.Name}\t{this.DateOfBirth}";
         }
     }
     class Program
