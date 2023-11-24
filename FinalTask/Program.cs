@@ -22,7 +22,7 @@ namespace FinalTask
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Имя: {this.Name}\tГруппа: {this.Group}\tДата рождения: {this.DateOfBirth}";
+            return $"{this.Name}\t{this.Group}\t{this.DateOfBirth}";
         }
     }
     class Program
@@ -59,13 +59,13 @@ namespace FinalTask
             Directory.CreateDirectory(AnotherPath);
             if (Directory.Exists(AnotherPath))
             {
-                using (var writer = new StreamWriter(AnotherPath + $"\\student {group}.txt"))
+                using (var writer = new StreamWriter(AnotherPath + $"\\Students {group}.txt"))
                 {
                     foreach(var student in students)
                     {
                         if (student.Group == group)
                         {
-                            writer.WriteLine($"{student.Name}\t{student.Group}\t{student.DateOfBirth}");
+                            writer.WriteLine(student.ToString());
                         }
                     }
                 }
