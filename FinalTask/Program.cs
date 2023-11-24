@@ -29,15 +29,22 @@ namespace FinalTask
     {
         static void Main(string[] args)
         {
-            const string path = @"D:\Програмирование\C#\ConsoleApp6\FinalTask\Students.dat";
-
-            var HumanArray = ReadBinaryFile(path); // Возврат массива студентов
-
-            List<string> studentsGroups = new List<string>(); // Список групп
-            
-            foreach ( var student in HumanArray )
+            try
             {
-                WriteTextFile(student.Group, HumanArray); // Запись данных в файл
+                const string path = @"D:\Програмирование\C#\ConsoleApp6\FinalTask\Students.dat";
+
+                var HumanArray = ReadBinaryFile(path); // Возврат массива студентов
+
+                List<string> studentsGroups = new List<string>(); // Список групп
+
+                foreach (var student in HumanArray)
+                {
+                    WriteTextFile(student.Group, HumanArray); // Запись данных в файл
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
             }
             
         }
